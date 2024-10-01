@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Books;
+package com.example.LibraryManagementApplication.Book;
 
 public enum BookStatus {
     AVAILABLE,

@@ -1,6 +1,5 @@
 package com.example.LibraryManagementApplication.BookAuthor;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,12 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/book-authors")
+@RequestMapping("/api/v1/book-author")
 public class BookAuthorController {
 
     @Autowired
     private BookAuthorService bookAuthorService;
-
 
     @GetMapping
     public List<BookAuthor> getAllBookAuthors() {
@@ -29,12 +27,10 @@ public class BookAuthorController {
         return ResponseEntity.notFound().build();
     }
 
-
     @PostMapping
     public BookAuthor addBookAuthor(@RequestBody BookAuthorDTO bookAuthor) {
         return bookAuthorService.addBookAuthor(bookAuthor);
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<BookAuthor> updateBookAuthor(@PathVariable int id, @RequestBody BookAuthorDTO bookAuthorDTO) {
@@ -44,7 +40,6 @@ public class BookAuthorController {
         }
         return ResponseEntity.notFound().build();
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBookAuthor(@PathVariable int id) {

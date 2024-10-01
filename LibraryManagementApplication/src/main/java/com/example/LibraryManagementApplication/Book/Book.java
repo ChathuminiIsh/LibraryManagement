@@ -1,9 +1,7 @@
-package com.example.LibraryManagementApplication.Books;
+package com.example.LibraryManagementApplication.Book;
 
 import com.example.LibraryManagementApplication.BookAuthor.BookAuthor;
 import com.example.LibraryManagementApplication.Publisher.Publisher;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,7 +27,6 @@ public class Book {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
-
     public int price;
     public LocalDateTime publishedDate;
     public  LocalDateTime createdAt;
@@ -37,8 +34,7 @@ public class Book {
     @Enumerated(EnumType.ORDINAL)
     public BookStatus status;
 
- @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-  private Set<BookAuthor> bookAuthors = new HashSet<>();
-
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private Set<BookAuthor> bookAuthors = new HashSet<>();
 
 }

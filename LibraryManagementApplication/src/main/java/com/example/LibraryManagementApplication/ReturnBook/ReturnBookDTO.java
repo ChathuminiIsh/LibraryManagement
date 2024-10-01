@@ -16,17 +16,15 @@ public class ReturnBookDTO {
     private int memberId;
 
     @JsonProperty("borrow_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate borrowDate;
 
     @JsonProperty("return_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate returnDate;
 
     @JsonProperty("actual_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate actualReturnDate;
 
-
-    private long fine;
 }

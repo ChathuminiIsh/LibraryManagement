@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Authors;
+package com.example.LibraryManagementApplication.Author;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,5 @@
-package com.example.LibraryManagementApplication.Members;
+package com.example.LibraryManagementApplication.Member;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,11 +20,6 @@ public class Member {
 
     public String phoneNumber;
 
-    @JsonProperty("created_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
     public LocalDateTime createdAt;
-
-    @JsonProperty("updated_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
     public LocalDateTime updatedAt;
 }

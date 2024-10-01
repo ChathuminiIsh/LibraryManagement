@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/borrowings")
+@RequestMapping("/api/v1/borrowing")
 public class BorrowingController {
 
     @Autowired
@@ -28,8 +28,8 @@ public class BorrowingController {
     }
 
     @PostMapping
-    public Borrowing addBorrowing(@RequestBody BorrowingDTO borrowing) {
-        return borrowingService.addBorrowing(borrowing);
+    public Borrowing addBorrowing(@RequestBody BorrowingDTO borrowingDTO) {
+        return borrowingService.addBorrowing(borrowingDTO);
     }
 
     @PutMapping("/{id}")

@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Authors;
+package com.example.LibraryManagementApplication.Author;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/authors")
+@RequestMapping("/api/v1/author")
 public class AuthorController {
 
     @Autowired
@@ -31,9 +31,9 @@ public class AuthorController {
     }
 
 @PostMapping
-  public Author addAuthor(@RequestBody AuthorDTO author){
+  public Author addAuthor(@RequestBody AuthorDTO authorDTO){
 
-        return authorService.addAuthor(author);
+        return authorService.addAuthor(authorDTO);
  }
 
 @PutMapping("/{id}")

@@ -1,7 +1,7 @@
-package com.example.LibraryManagementApplication.Books;
+package com.example.LibraryManagementApplication.Book;
 
-import com.example.LibraryManagementApplication.Authors.Author;
-import com.example.LibraryManagementApplication.Authors.AuthorRepository;
+import com.example.LibraryManagementApplication.Publisher.Publisher;
+import com.example.LibraryManagementApplication.Publisher.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,13 @@ public class BookService {
     private BookRepository bookRepository;
 
     @Autowired
-    public AuthorRepository authorRepository;
+    public PublisherRepository publisherRepository;
 
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
 
     public Book getBookById(int id){
-
         return  bookRepository.findById(id).orElse(null);
     }
 
@@ -30,6 +29,10 @@ public class BookService {
         book.setISBN(bookDTO.getISBN());
         book.setTitle(bookDTO.getTitle());
         book.setGenre(bookDTO.getGenre());
+
+        Publisher publisher = publisherRepository.findById(bookDTO.getPublisherId()).orElseThrow();
+        book.setPublisher(publisher);
+
         book.setPrice(bookDTO.getPrice());
         book.setPublishedDate(bookDTO.getPublishedDate());
         book.setStatus(bookDTO.getStatus());
@@ -44,6 +47,10 @@ public class BookService {
             book.setISBN(bookDTO.getISBN());
             book.setTitle(bookDTO.getTitle());
             book.setGenre(bookDTO.getGenre());
+
+            Publisher publisher = publisherRepository.findById(bookDTO.getPublisherId()).orElseThrow();
+            book.setPublisher(publisher);
+
             book.setPrice(bookDTO.getPrice());
             book.setPublishedDate(bookDTO.getPublishedDate());
             book.setStatus(bookDTO.getStatus());

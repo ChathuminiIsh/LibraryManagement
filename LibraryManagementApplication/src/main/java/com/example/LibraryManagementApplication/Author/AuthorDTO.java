@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Authors;
+package com.example.LibraryManagementApplication.Author;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

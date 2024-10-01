@@ -1,5 +1,4 @@
-package com.example.LibraryManagementApplication.Members;
-import com.example.LibraryManagementApplication.Books.Book;
+package com.example.LibraryManagementApplication.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/members")
+@RequestMapping("/api/v1/member")
 public class MemberController {
 
     @Autowired
@@ -29,8 +28,8 @@ public class MemberController {
     }
 
     @PostMapping
-    public Member addMember(@RequestBody MemberDTO member) {
-        return memberService.addMember(member);
+    public Member addMember(@RequestBody MemberDTO memberDTO) {
+        return memberService.addMember(memberDTO);
     }
 
     @PutMapping("/{id}")

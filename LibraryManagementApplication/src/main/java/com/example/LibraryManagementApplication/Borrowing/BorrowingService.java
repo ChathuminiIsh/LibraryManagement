@@ -1,9 +1,9 @@
 package com.example.LibraryManagementApplication.Borrowing;
 
-import com.example.LibraryManagementApplication.Books.Book;
-import com.example.LibraryManagementApplication.Books.BookRepository;
-import com.example.LibraryManagementApplication.Members.Member;
-import com.example.LibraryManagementApplication.Members.MemberRepository;
+import com.example.LibraryManagementApplication.Book.Book;
+import com.example.LibraryManagementApplication.Book.BookRepository;
+import com.example.LibraryManagementApplication.Member.Member;
+import com.example.LibraryManagementApplication.Member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,6 @@ public class BorrowingService {
         borrowing.setBorrowDate(java.time.LocalDateTime.now());
         borrowing.setReturnDate(borrowingDTO.getReturnDate());
 
-
         return borrowingRepository.save(borrowing);
     }
 
@@ -55,9 +54,7 @@ public class BorrowingService {
             Book book = bookRepository.findById(borrowingDTO.getBookId()).orElseThrow();
             borrowing.setBook(book);
 
-            borrowing.setBorrowDate(java.time.LocalDateTime.now());
             borrowing.setReturnDate(borrowingDTO.getReturnDate());
-
 
             return borrowingRepository.save(borrowing);
         }

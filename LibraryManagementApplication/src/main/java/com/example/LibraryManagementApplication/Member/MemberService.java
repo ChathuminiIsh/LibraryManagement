@@ -1,5 +1,4 @@
-package com.example.LibraryManagementApplication.Members;
-
+package com.example.LibraryManagementApplication.Member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +12,10 @@ public class MemberService {
     private MemberRepository memberRepository;
 
     public List<Member> getAllMember() {
-
         return memberRepository.findAll();
     }
 
     public Member getMemberById(int id) {
-
         return memberRepository.findById(id).orElse(null);
     }
 
@@ -29,7 +26,7 @@ public class MemberService {
         member.setEmail(memberDTO.getEmail());
         member.setPhoneNumber(memberDTO.getPhoneNumber());
         member.setCreatedAt(java.time.LocalDateTime.now());
-
+        member.setUpdatedAt(java.time.LocalDateTime.now());
 
         return memberRepository.save(member);
     }

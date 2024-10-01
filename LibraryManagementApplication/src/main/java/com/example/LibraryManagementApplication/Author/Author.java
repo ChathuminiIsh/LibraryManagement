@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Authors;
+package com.example.LibraryManagementApplication.Author;
 
 import com.example.LibraryManagementApplication.BookAuthor.BookAuthor;
 import jakarta.persistence.*;

@@ -15,10 +15,6 @@ public class BorrowingDTO {
     @JsonProperty("book_id")
     public int bookId;
 
-    @JsonProperty("borrow_date")
-    @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
-    public LocalDateTime borrowDate;
-
     @JsonProperty("return_date")
     @JsonFormat(pattern ="yyyy-MM-dd HH:mm")
     public LocalDateTime returnDate;

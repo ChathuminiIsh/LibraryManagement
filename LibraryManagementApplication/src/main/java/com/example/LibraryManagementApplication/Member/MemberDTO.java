@@ -1,13 +1,13 @@
-package com.example.LibraryManagementApplication.Publisher;
+package com.example.LibraryManagementApplication.Member;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class PublisherDTO {
+public class MemberDTO {
 
-    @JsonProperty("publisher_name")
-    public String publisherName;
+    @JsonProperty("member_name")
+    public String memberName;
 
     @JsonProperty("email")
     public String email;

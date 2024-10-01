@@ -1,12 +1,9 @@
 package com.example.LibraryManagementApplication.BookAuthor;
 
-
-import com.example.LibraryManagementApplication.Authors.Author;
-import com.example.LibraryManagementApplication.Books.Book;
+import com.example.LibraryManagementApplication.Author.Author;
+import com.example.LibraryManagementApplication.Book.Book;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -27,6 +24,5 @@ public class BookAuthor {
     @MapsId("authorId")
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
-
 
 }

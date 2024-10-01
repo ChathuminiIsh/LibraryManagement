@@ -14,5 +14,4 @@ public class BookAuthorId implements Serializable {
         this.authorId = authorId;
     }
 
-
 }

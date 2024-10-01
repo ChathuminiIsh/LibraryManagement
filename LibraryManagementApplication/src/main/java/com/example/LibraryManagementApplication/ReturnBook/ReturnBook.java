@@ -1,7 +1,7 @@
 package com.example.LibraryManagementApplication.ReturnBook;
 
-import com.example.LibraryManagementApplication.Books.Book;
-import com.example.LibraryManagementApplication.Members.Member;
+import com.example.LibraryManagementApplication.Book.Book;
+import com.example.LibraryManagementApplication.Member.Member;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 @Entity
 public class ReturnBook {
     @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int returnId;
 
     @ManyToOne
@@ -27,10 +27,17 @@ public class ReturnBook {
     private LocalDate returnDate;
     private LocalDate actualReturnDate;
 
-    @Transient
     private long fine;
 
+    public void calFine(LocalDate returnDate, LocalDate actualReturnDate) {
+        this.returnDate = returnDate;
+        this.actualReturnDate = actualReturnDate;
 
+        if (actualReturnDate != null && returnDate != null) {
+            long daysLate = ChronoUnit.DAYS.between(returnDate, actualReturnDate);
+            setFine(daysLate > 0 ? daysLate * 100 : 0);
+        }
 
+    }
 }
 

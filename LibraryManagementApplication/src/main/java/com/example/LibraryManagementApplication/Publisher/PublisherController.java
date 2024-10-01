@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/publishers")
+@RequestMapping("/api/v1/publisher")
 public class PublisherController {
 
     @Autowired
@@ -29,8 +29,8 @@ public class PublisherController {
     }
 
     @PostMapping
-    public Publisher addPublisher(@RequestBody PublisherDTO publisher) {
-        return publisherService.addPublisher(publisher);
+    public Publisher addPublisher(@RequestBody PublisherDTO publisherDTO) {
+        return publisherService.addPublisher(publisherDTO);
     }
 
     @PutMapping("/{id}")
@@ -48,6 +48,5 @@ public class PublisherController {
         publisherService.deletePublisher(id);
         return ResponseEntity.noContent().build();
     }
-
 
 }

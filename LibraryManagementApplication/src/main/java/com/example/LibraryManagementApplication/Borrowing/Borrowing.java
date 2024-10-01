@@ -1,9 +1,7 @@
 package com.example.LibraryManagementApplication.Borrowing;
 
-import com.example.LibraryManagementApplication.Books.Book;
-import com.example.LibraryManagementApplication.Members.Member;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.LibraryManagementApplication.Book.Book;
+import com.example.LibraryManagementApplication.Member.Member;
 import jakarta.persistence.*;
 import lombok.Data;
 

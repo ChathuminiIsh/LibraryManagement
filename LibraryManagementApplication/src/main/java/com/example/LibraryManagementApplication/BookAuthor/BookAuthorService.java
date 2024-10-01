@@ -1,9 +1,9 @@
 package com.example.LibraryManagementApplication.BookAuthor;
 
-import com.example.LibraryManagementApplication.Authors.Author;
-import com.example.LibraryManagementApplication.Authors.AuthorRepository;
-import com.example.LibraryManagementApplication.Books.Book;
-import com.example.LibraryManagementApplication.Books.BookRepository;
+import com.example.LibraryManagementApplication.Author.Author;
+import com.example.LibraryManagementApplication.Author.AuthorRepository;
+import com.example.LibraryManagementApplication.Book.Book;
+import com.example.LibraryManagementApplication.Book.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class BookAuthorService {
-
 
     @Autowired
     private BookAuthorRepository bookAuthorRepository;
@@ -30,13 +29,11 @@ public class BookAuthorService {
         return bookAuthorRepository.findById(id).orElse(null);
     }
 
-
     public BookAuthor addBookAuthor(BookAuthorDTO bookAuthorDTO) {
 
         BookAuthor bookAuthor = new BookAuthor();
 
         BookAuthorId bookAuthorId = new BookAuthorId(bookAuthorDTO.getBookId(), bookAuthorDTO.getAuthorId());
-
         bookAuthor.setId(bookAuthorId);
 
         Book book = bookRepository.findById(bookAuthorDTO.getBookId()).orElseThrow();
@@ -57,8 +54,6 @@ public class BookAuthorService {
 
             Author author = authorRepository.findById(bookAuthorDTO.getAuthorId()).orElseThrow();
             bookAuthor.setAuthor(author);
-
-
 
             return bookAuthorRepository.save(bookAuthor);
         }

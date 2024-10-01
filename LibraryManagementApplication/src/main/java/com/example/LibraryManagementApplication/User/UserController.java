@@ -1,4 +1,4 @@
-package com.example.LibraryManagementApplication.Users;
+package com.example.LibraryManagementApplication.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -27,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping
-    public User addUser(@RequestBody UserDTO user) {
-        return userService.addUser(user);
+    public User addUser(@RequestBody UserDTO userDTO) {
+        return userService.addUser(userDTO);
     }
 
     @PutMapping("/{id}")

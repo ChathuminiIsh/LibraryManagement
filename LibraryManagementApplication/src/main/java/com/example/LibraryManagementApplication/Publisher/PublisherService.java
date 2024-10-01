@@ -12,12 +12,10 @@ public class PublisherService {
     private PublisherRepository publisherRepository;
 
     public List<Publisher> getAllPublisher() {
-
         return publisherRepository.findAll();
     }
 
     public Publisher getPublisherById(int id) {
-
         return publisherRepository.findById(id).orElse(null);
     }
 
@@ -28,7 +26,7 @@ public class PublisherService {
         publisher.setEmail(publisherDTO.getEmail());
         publisher.setPhoneNumber(publisherDTO.getPhoneNumber());
         publisher.setCreatedAt(java.time.LocalDateTime.now());
-
+        publisher.setUpdatedAt(java.time.LocalDateTime.now());
 
         return publisherRepository.save(publisher);
     }
@@ -42,7 +40,6 @@ public class PublisherService {
             publisher.setEmail(publisherDTO.getEmail());
             publisher.setPhoneNumber(publisherDTO.getPhoneNumber());
             publisher.setUpdatedAt(java.time.LocalDateTime.now());
-
 
             return publisherRepository.save(publisher);
         }
